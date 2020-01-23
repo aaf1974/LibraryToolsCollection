@@ -5,10 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="LinqExt\" />
     <Folder Include="DateTimeExt\" />
     <Folder Include="EnumExt\" />
-    <Folder Include="StringExt\" />
+    <Folder Include="LinqExt\" />
   </ItemGroup>
 
 </Project>
