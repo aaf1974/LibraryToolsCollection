@@ -36,7 +36,7 @@ namespace ExtensionLibrary_Test.StringExt_Test
         [Fact]
         public void BadTest()
         {
-            Assert.True(false);
+            Assert.True(false)
         }
     }
 }
