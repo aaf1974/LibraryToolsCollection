@@ -32,5 +32,11 @@ namespace ExtensionLibrary_Test.StringExt_Test
         {
             Assert.True(value.IsNumberOnly() == result);
         }
+
+        [Fact]
+        public void BadTest()
+        {
+            Assert.True(false);
+        }
     }
 }
