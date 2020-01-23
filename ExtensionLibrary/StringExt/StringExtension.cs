@@ -13,5 +13,34 @@ namespace ExtensionLibrary.StringExt
 
             return value.Trim();
         }
+
+        //https://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
+
+        public static bool IsNumberOnly(this string s)
+        {
+            s = s.Trim();
+            if (s.Length == 0)
+                return false;
+            bool floatpoint = s.Contains('.') || s.Contains(',');
+
+            return s.IsNumberOnly(floatpoint);
+        }
+
+        public static bool IsNumberOnly(this string s, bool floatpoint)
+        {
+            s = s.Trim();
+            if (s.Length == 0)
+                return false;
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                {
+                    if (floatpoint && (c == '.' || c == ','))
+                        continue;
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
