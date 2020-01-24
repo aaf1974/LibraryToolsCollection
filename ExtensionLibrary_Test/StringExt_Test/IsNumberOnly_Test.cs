@@ -17,7 +17,7 @@ namespace ExtensionLibrary_Test.StringExt_Test
         [InlineData("tractor", true, false)]
         public void IsNumberOnly(string value, bool hasPoin, bool result)
         {
-            Assert.True(value.IsNumberOnly(hasPoin) == result);
+            Assert.True(value.LtcIsNumberOnly(hasPoin) == result);
         }
 
 
@@ -30,13 +30,7 @@ namespace ExtensionLibrary_Test.StringExt_Test
         [InlineData("tractor", false)]
         public void IsNumberOnlyTest(string value, bool result)
         {
-            Assert.True(value.IsNumberOnly() == result);
-        }
-
-        [Fact]
-        public void BadTest()
-        {
-            Assert.True(false);
+            Assert.True(value.LtcIsNumberOnly() == result);
         }
     }
 }

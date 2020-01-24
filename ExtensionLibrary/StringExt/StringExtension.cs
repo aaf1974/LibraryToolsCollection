@@ -16,17 +16,17 @@ namespace ExtensionLibrary.StringExt
 
         //https://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
 
-        public static bool IsNumberOnly(this string s)
+        public static bool LtcIsNumberOnly(this string s)
         {
             s = s.Trim();
             if (s.Length == 0)
                 return false;
             bool floatpoint = s.Contains('.') || s.Contains(',');
 
-            return s.IsNumberOnly(floatpoint);
+            return s.LtcIsNumberOnly(floatpoint);
         }
 
-        public static bool IsNumberOnly(this string s, bool floatpoint)
+        public static bool LtcIsNumberOnly(this string s, bool floatpoint)
         {
             s = s.Trim();
             if (s.Length == 0)
