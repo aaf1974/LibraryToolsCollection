@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace SimpleStruct_Test
+namespace SimpleStructTest
 {
     public class UnitTest1
     {

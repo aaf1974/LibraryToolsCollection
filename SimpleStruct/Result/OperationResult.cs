@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleStruct.Result
+﻿namespace ComonStruct.Result
 {
     public class OperationResult
     {
@@ -74,7 +70,7 @@ namespace SimpleStruct.Result
         }
         public new static OperationResult<T> Success(string message)
         {
-            T def = default(T);
+            T def = default;
             return Success(message, def);
         }
         public static OperationResult<T> Success(T value)
@@ -95,7 +91,7 @@ namespace SimpleStruct.Result
 
         public new static OperationResult<T> Fault(string message)
         {
-            T def = default(T);
+            T def = default;
             return Fault(message, def);
         }
         public static OperationResult<T> Fault(T value)
@@ -105,7 +101,7 @@ namespace SimpleStruct.Result
         public static OperationResult<T> Fault(string message, T value)
         {
             return new OperationResult<T>(false, message, value);
-        } 
+        }
         #endregion
     }
 }
