@@ -1,11 +1,9 @@
-﻿using SimpleStruct.Result;
-using System;
+﻿using ComonStruct.Result;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace SimpleStruct_Test.Result_Test
+namespace SimpleStructTest.OperationResultTests
 {
     public class OperationResultGeneric_Test
     {
