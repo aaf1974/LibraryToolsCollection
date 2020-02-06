@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ExtensionLibrary.StringExt
@@ -72,6 +72,16 @@ namespace ExtensionLibrary.StringExt
                     result.Append($"{separator} {list[i].ToString()}");
             }
             return result.ToString();
+        }
+
+        public static string Ltc2CamelCase(this string input)
+        {
+            switch (input)
+            {
+                case null: throw new ArgumentNullException(nameof(input));
+                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
         }
     }
 }
