@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComonStruct", "ComonStruct\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComonStructTest", "Test\ComonStruct_Test\ComonStructTest.csproj", "{453ACD4D-68E2-4E32-8A39-65BA1E1BFF44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionLibrary_Test", "Test\ExtensionLibrary_Test\ExtensionLibrary_Test.csproj", "{AF179B3E-0E1F-46BE-B61E-75D28DA75A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionLibraryTest", "Test\ExtensionLibrary_Test\ExtensionLibraryTest.csproj", "{AF179B3E-0E1F-46BE-B61E-75D28DA75A25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
