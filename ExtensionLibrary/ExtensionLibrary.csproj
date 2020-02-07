@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <Folder Include="DateTimeExt\" />
-    <Folder Include="EnumExt\" />
-    <Folder Include="LinqExt\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Enums.NET" Version="3.0.3" />
   </ItemGroup>
 
 </Project>
