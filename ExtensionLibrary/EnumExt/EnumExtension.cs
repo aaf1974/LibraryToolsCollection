@@ -63,6 +63,8 @@ namespace ExtensionLibrary.EnumExt
 
             return result;
         }
+        
+        
     } 
     
 }
