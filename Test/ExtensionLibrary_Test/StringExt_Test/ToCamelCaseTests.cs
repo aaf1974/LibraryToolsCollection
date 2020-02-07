@@ -12,7 +12,7 @@ namespace ExtensionLibrary_Test.StringExt_Test
             var res = val.Ltc2CamelCase();
 
 
-            Assert.Equal("One1", res);
+            Assert.Equal("One", res);
         }
     }
 }
