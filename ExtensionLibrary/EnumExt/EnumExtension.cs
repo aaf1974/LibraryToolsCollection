@@ -64,7 +64,7 @@ namespace ExtensionLibrary.EnumExt
             return result;
         }
         
-        mathaFaca;
+        
     } 
     
 }
