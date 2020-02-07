@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ExtensionLibrary.StringExt
 {
@@ -76,6 +77,28 @@ namespace ExtensionLibrary.StringExt
 
         public static string Ltc2CamelCase(this string input)
         {
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
+
+            string result = input.First().ToString().ToUpper() + input.Substring(1);
+
+            return result;
+
+            //https://stackoverflow.com/questions/11959380/how-to-get-the-descriptionattribute-value-from-an-enum-member
+            //"FooBar" -> "Foo Bar"
+            result = Regex.Replace(result, @"([a-z])([A-Z])", "$1 $2");
+
+            //"Foo123" -> "Foo 123"
+            result = Regex.Replace(result, @"([A-Za-z])([0-9])", "$1 $2");
+
+            //"123Foo" -> "123 Foo"
+            result = Regex.Replace(result, @"([0-9])([A-Za-z])", "$1 $2");
+
+            //"FOOBar" -> "FOO Bar"
+            result = Regex.Replace(result, @"(?<!^)(?<! )([A-Z][a-z])", " $1");
+
+            return result;
+
             switch (input)
             {
                 case null: throw new ArgumentNullException(nameof(input));
