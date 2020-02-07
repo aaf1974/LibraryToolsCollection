@@ -1,10 +1,8 @@
 ﻿using ExtensionLibrary.StringExt;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace ExtensionLibrary_Test.StringExt_Test
+namespace ExtensionLibraryTest.StringExtTest
 {
     public class List2String_Test
     {

@@ -5,5 +5,9 @@
         void Execute();
     }
 
+    public interface IPipelineTask<TCtx>
+    {
+        void Execute(TCtx ctx);
+    }
 }
 

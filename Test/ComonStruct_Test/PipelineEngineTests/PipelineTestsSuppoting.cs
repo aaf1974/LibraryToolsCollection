@@ -53,4 +53,27 @@ namespace SimpleStructTest.PipelineEngineTests
             Ctx.res = Ctx.res / Ctx.val3;
         }
     }
+
+
+
+    abstract class Sample_GenericTask : IPipelineTask<Sample_Ctx>
+    {
+        public abstract void Execute(Sample_Ctx ctx);
+    }
+
+    class Sample_MultiplicateVal1AndVal2_Generic : Sample_GenericTask
+    {
+        public override void Execute(Sample_Ctx ctx)
+        {
+            ctx.res = ctx.val1 * ctx.val2;
+        }
+    }
+
+    class Sample_ResDivVal3_Generic : Sample_GenericTask
+    {
+        public override void Execute(Sample_Ctx ctx)
+        {
+            ctx.res = ctx.res / ctx.val3;
+        }
+    }
 }
