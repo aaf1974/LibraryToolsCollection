@@ -9,11 +9,48 @@ namespace ExtensionLibraryTest.LinqExtTests
     {
     }
 
-    class StructMain
+
+    class NoIEquatableStruct
     {
         public int id { get; set; }
 
         public string name { get; set; }
+    }
+
+    class StructMain : IEquatable<StructMain>, IComparable
+    {
+        public int id { get; set; }
+
+        public string name { get; set; }
+
+        public bool Equals([AllowNull] StructMain other)
+        {
+            if (!id.Equals(other.id))
+                return false;
+            if (name != null && other.name != null && !name.Equals(other.name))
+                return false;
+
+            return true;
+        }
+
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            StructMain other = obj as StructMain;
+            if (other == null)
+                throw new ArgumentException("Object is not a StructMain");
+
+            if (id != other.id)
+                return id > other.id ? 1 : -1;
+
+            //if (name != other.name)
+            //    return name > other.name ? 1 : -1;
+
+            return 0;
+        }
+
     }
 
     class StructJoined
@@ -55,9 +92,7 @@ namespace ExtensionLibraryTest.LinqExtTests
         {
             if (!mainId.Equals(other.mainId))
                 return false;
-            if ((mainName != null && other.mainName != null && !mainName.Equals(other.mainName))
-
-                )
+            if ((mainName != null && other.mainName != null && !mainName.Equals(other.mainName)))
                 return false;
             if (!joinedId.Equals(other.joinedId))
                 return false;

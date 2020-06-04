@@ -25,7 +25,7 @@ namespace ExtensionLibraryTest.LinqExtTests
         [Fact]
         public void One_to_One_Join()
         {
-            var joined = mainCollection.FullOuterJoin(one2OneChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
+            var joined = mainCollection.LtcFullOuterJoin(one2OneChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
                 .ToList();
 
             List<StructResult> expecrted = new List<StructResult>
@@ -47,7 +47,7 @@ namespace ExtensionLibraryTest.LinqExtTests
         [Fact]
         public void Without_one_Join()
         {
-            var joined = mainCollection.FullOuterJoin(withoutOneChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
+            var joined = mainCollection.LtcFullOuterJoin(withoutOneChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
                 .ToList();
 
             List<StructResult> expecrted = new List<StructResult>
@@ -71,7 +71,7 @@ namespace ExtensionLibraryTest.LinqExtTests
         [Fact]
         public void Wit_added_Join()
         {
-            var joined = mainCollection.FullOuterJoin(witAddedChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
+            var joined = mainCollection.LtcFullOuterJoin(witAddedChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
                 .ToList();
 
             List<StructResult> expecrted = new List<StructResult>
@@ -96,7 +96,7 @@ namespace ExtensionLibraryTest.LinqExtTests
         [Fact]
         public void Various_Join()
         {
-            var joined = mainCollection.FullOuterJoin(variousChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
+            var joined = mainCollection.LtcFullOuterJoin(variousChild, x => x.id, j => j.mainId, (x, j, id) => new StructResult(x, j))
                 .ToList();
 
             List<StructResult> expecrted = new List<StructResult>

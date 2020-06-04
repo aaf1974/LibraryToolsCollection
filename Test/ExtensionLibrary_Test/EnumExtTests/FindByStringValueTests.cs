@@ -24,5 +24,16 @@ namespace ExtensionLibraryTest.EnumExtTests
 
             Assert.Throws<ArgumentException>(() => Enum<SampleEnum>.FindByString(sVal));
         }
+
+
+        [Fact]
+        public void FindNotCorrectNameWithDefault()
+        {
+            string sVal = "badSymbol";
+
+            SampleEnum se = Enum<SampleEnum>.FindByString(sVal, SampleEnum.Two);
+
+            Assert.Equal(SampleEnum.Two, se);
+        }
     }
 }

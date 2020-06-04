@@ -45,5 +45,22 @@ namespace ExtensionLibraryTest.EnumExtTests
 
             Assert.Equal("ThreeDisplay", res);
         }
+
+
+        [Fact]
+        public void IsHasDescription()
+        {
+            var res = SampleEnum.One.LtcHasDescription();
+
+            Assert.True(res);
+        }
+
+        [Fact]
+        public void IsNotHasDescription()
+        {
+            var res = SampleEnum.Two.LtcHasDescription();
+
+            Assert.False(res);
+        }
     }
 }
