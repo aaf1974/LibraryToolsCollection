@@ -3,18 +3,18 @@ using Xunit;
 
 namespace ExtensionLibraryTest.StringExtTest
 {
-    public class EncriptTest
-    {
-        [Fact]
-        public void Encript()
-        {
-            string secret = "My Secret";
+    //public class EncriptTest
+    //{
+    //    [Fact]
+    //    public void Encript()
+    //    {
+    //        string secret = "My Secret";
 
-            string encoded = secret.LcpEncrypt("mykey");
-            Assert.NotEqual(secret, encoded);
+    //        string encoded = secret.LcpEncrypt("mykey");
+    //        Assert.NotEqual(secret, encoded);
 
-            string decoded = encoded.LcpDecrypt("mykey");
-            Assert.Equal(secret, decoded);
-        }
-    }
+    //        string decoded = encoded.LcpDecrypt("mykey");
+    //        Assert.Equal(secret, decoded);
+    //    }
+    //}
 }
