@@ -1,11 +1,12 @@
 ﻿using ExtensionLibrary.StringExt;
+using GithubNotRunning;
 using Xunit;
 
 namespace ExtensionLibraryTest.StringExtTest
 {
     public class EncriptTest
     {
-        [Fact]
+        [FactSwitch]
         public void Encript()
         {
             string secret = "My Secret";
