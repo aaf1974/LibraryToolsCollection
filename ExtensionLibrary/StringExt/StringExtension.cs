@@ -182,11 +182,37 @@ namespace ExtensionLibrary.StringExt
         public static T LtcParse<T>(this string value)
         {
             T result = default(T);
-            if (!string.IsNullOrEmpty(value))
-            {
-                TypeConverter tc = TypeDescriptor.GetConverter(typeof(T));
-                result = (T)tc.ConvertFrom(value);
-            }
+            if (string.IsNullOrEmpty(value))
+                return result;
+
+            if (typeof(T) == typeof(DateTime))
+                return (T)(object)value.LtcParseToDate();
+
+            TypeConverter tc = TypeDescriptor.GetConverter(typeof(T));
+            result = (T)tc.ConvertFrom(value);
+            return result;
+        }
+
+        //https://docs.microsoft.com/ru-ru/dotnet/standard/base-types/custom-date-and-time-format-strings
+        static string[] datetTimeFormts = new[]
+        {
+            "yyyy-MM-dd HH:mm tt",
+            "dd/MM/yyyy"
+        };
+
+        public static DateTime LtcParseToDate(this string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return default(DateTime);
+
+            //var result = value.LtcParseToDate("yyyy-MM-dd HH:mm tt");
+            var result = DateTime.ParseExact(value, datetTimeFormts, null);
+            return result;
+        }
+
+        public static DateTime LtcParseToDate(this string value, string format)
+        {
+            var result = DateTime.ParseExact(value, format, null);
             return result;
         }
     }

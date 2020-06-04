@@ -13,8 +13,8 @@ namespace ExtensionLibraryTest.StringExtTest
         {
             Assert.Equal(123, "123".LtcParse<int>());
             Assert.Equal(123, "123".LtcParse<int?>());
-            Assert.Equal(new DateTime(2008, 12, 1), "01/12/2008".LtcParse<DateTime>());
-            Assert.Equal(new DateTime(2008, 12, 1), "01/12/2008".LtcParse<DateTime?>());
+            Assert.Equal(new DateTime(2008, 12, 15), "15/12/2008".LtcParse<DateTime>());
+            Assert.Equal(new DateTime(2008, 12, 15), "15/12/2008".LtcParse<DateTime?>());
 
 
             string sample = null;
