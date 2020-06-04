@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace ExtensionLibrary.EnumExt
 {
+    //https://extensionmethod.net/csharp/enum
     public static class EnumExtension
     {
 
@@ -36,12 +37,8 @@ namespace ExtensionLibrary.EnumExt
         }
         #endregion
 
-        //public static string LtcGetDescription<T>(this T val, EnumFormat format = EnumFormat.Description)
-        //    where T: struct, Enum
-        //{
-        //    return val.AsString(format) ?? string.Empty;
-        //}
 
+        #region Description
         public static string LtcGetDescription<TEnum>(this TEnum val, EnumFormat format = EnumFormat.Description, EnumFormat format2 = EnumFormat.DisplayName)
             where TEnum : struct, Enum
         {
@@ -63,8 +60,64 @@ namespace ExtensionLibrary.EnumExt
 
             return result;
         }
-        
-        
-    } 
-    
+
+        public static bool LtcHasDescription<TEnum>(this TEnum someEnum)
+            where TEnum : struct, Enum
+        {
+            return !string.IsNullOrWhiteSpace(someEnum.LtcGetDescription());
+        } 
+        #endregion
+
+        public static bool LtcIsSet(this Enum input, Enum matchTo)
+        {
+            return (Convert.ToUInt32(input) & Convert.ToUInt32(matchTo)) != 0;
+        }
+    }
+
+
+    /// <summary> Enum Extension Methods </summary>
+    /// <typeparam name="T"> type of Enum </typeparam>
+    public class Enum<T> where T : struct, Enum
+    {
+        public static int Count
+        {
+            get
+            {
+                if (!typeof(T).IsEnum)
+                    throw new ArgumentException("T must be an enumerated type");
+
+                return Enum.GetNames(typeof(T)).Length;
+            }
+        }
+
+        public static T FindByString(string valueString)
+        {
+            if (!typeof(T).IsEnum)
+                throw new ArgumentException("T must be an enumerated type");
+
+            return (T)Enum.Parse(typeof(T), valueString);
+        }
+
+        public static T FindByString(string valueString, T defaultValue)
+        {
+            if (!typeof(T).IsEnum)
+                throw new ArgumentException("T must be an enumerated type");
+
+            T res;
+            var done = Enum.TryParse(valueString, true, out res);
+
+            return done ? res : defaultValue;
+        }
+
+        private static bool IsEnum
+        {
+            get
+            {
+                if (!typeof(T).IsEnum)
+                    throw new ArgumentException("T must be an enumerated type");
+
+                return true;
+            }
+        }
+    }
 }

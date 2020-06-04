@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace ExtensionLibraryTest.EnumExtTests
 {
@@ -17,5 +15,14 @@ namespace ExtensionLibraryTest.EnumExtTests
         Two,
         [Display(Name = "ThreeDisplay")]
         Three
+    }
+
+
+    [Flags]
+    enum SampleFlagEnum
+    {
+        FirstFlag = 1,
+        SecondFlag = 2,
+        ThreedFlag = 4
     }
 }
