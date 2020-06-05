@@ -199,5 +199,22 @@ namespace ExtensionLibrary.LinqExt
         {
             return items == null || !items.Any();
         }
+
+        //https://extensionmethod.net/csharp/ilist-t/chainable-list-add-typesafe
+        //var listTest = new List<string>().Push("test").Push("test2");
+        /// <summary>
+        /// var listTest = new List<string>().LtcAdd("test").LtcAdd("test2");
+        /// </summary>
+        /// <typeparam name="TList"></typeparam>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static TList LtcAdd<TList, TItem>(this TList list, TItem item) 
+            where TList : IList<TItem>
+        {
+            list.Add(item);
+            return list;
+        }
     }
 }
