@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ExtensionLibrary.ReflectionExt
@@ -33,6 +34,35 @@ namespace ExtensionLibrary.ReflectionExt
 			}
 			else
 				return default(T);
+		}
+
+
+		/// <summary>
+		/// https://stackoverflow.com/questions/18680083/how-to-add-a-datepicker-to-datagridtextcolumn-in-wpf
+		/// </summary>
+		/// <param name="propertyType"></param>
+		/// <param name="desiredType"></param>
+		/// <returns></returns>
+		public static bool IsTypeOrNullableOfType(this Type propertyType, Type desiredType)
+		{
+			return (propertyType == desiredType || Nullable.GetUnderlyingType(propertyType) == desiredType);
+		}
+
+		public static bool LtcIsNullableOfValueType(this Type propertyType)
+		{
+			return (propertyType.IsValueType ||
+					(Nullable.GetUnderlyingType(propertyType) != null &&
+					 Nullable.GetUnderlyingType(propertyType).IsValueType));
+		}
+
+
+		[Obsolete(message:"not correct", error: false)]
+		public static bool LtcIsNullable(this Type type)
+		{
+			if (Nullable.GetUnderlyingType(type) != null)
+				return true;
+
+			return false;
 		}
 	}
 }
