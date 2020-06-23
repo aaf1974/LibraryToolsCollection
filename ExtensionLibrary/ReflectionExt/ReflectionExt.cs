@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -63,6 +64,14 @@ namespace ExtensionLibrary.ReflectionExt
 				return true;
 
 			return false;
+		}
+
+
+		//TODO: need to implement
+		//https://github.com/AnthonyGiretti/aspnetcore-multitenant-injectiondependency/blob/master/Plugins.Tools/Extensions/TypeExtensions.cs
+		public static IEnumerable<Type> FilterByInterface(this IEnumerable<Type> pluggableItems, Type interfaceType)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
