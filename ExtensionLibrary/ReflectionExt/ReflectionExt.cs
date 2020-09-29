@@ -58,6 +58,7 @@ namespace ExtensionLibrary.ReflectionExt
 
 
 		[Obsolete(message:"not correct", error: false)]
+		//мб так надо?: if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)) {…}
 		public static bool LtcIsNullable(this Type type)
 		{
 			if (Nullable.GetUnderlyingType(type) != null)
